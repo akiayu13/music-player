@@ -2,7 +2,7 @@ import React from "react";
 import usePlayerStore from "../../zustand/store";
 import "./Seeker.css";
 
-const Seeker = ({ small = false }) => {
+const SmallSeeker = () => {
   const currentTime = usePlayerStore((state) => state.currentTime);
   const duration = usePlayerStore((state) => state.duration);
   const setCurrentTime = usePlayerStore((state) => state.setCurrentTime);
@@ -28,9 +28,7 @@ const Seeker = ({ small = false }) => {
 
   return (
     <div
-      className={`seeker-wrapper ${
-        small ? "block absolute bottom-[60px] py-0" : "hidden"
-      }  sm:block z-50`}
+      className="seeker-wrapper block absolute bottom-[60px] py-0 sm:!hidden z-50"
     >
       <input
         type="range"
@@ -45,4 +43,4 @@ const Seeker = ({ small = false }) => {
   );
 };
 
-export default Seeker;
+export default SmallSeeker;
