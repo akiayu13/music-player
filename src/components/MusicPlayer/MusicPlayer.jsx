@@ -22,7 +22,7 @@ const MusicPlayer = () => {
   return (
     <div
       onClick={handleClick}
-      className="!bottom-0 justify-between sm:justify-center sm:relative flex items-center w-full sm:flex-col sm:w-[45%] h-[70px] sm:h-full bg-[rgba(0,0,0,0.4)] sm:bg-transparent z-20 p-4"
+      className="!bottom-0 pb-10 sm:pb-auto justify-between sm:justify-center sm:relative flex items-center w-full sm:flex-col sm:w-[45%] h-[100px] sm:h-full bg-[rgba(0,0,0,0.4)] sm:bg-transparent z-20 p-4"
     >
       <div className="flex sm:w-full w-[60%] sm:justify-center  gap-4 items-center sm:flex-col-reverse">
         <div className="relative w-12 sm:w-[70%] aspect-square sm:max-w-[350px]">

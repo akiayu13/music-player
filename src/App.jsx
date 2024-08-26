@@ -14,12 +14,14 @@ export default function App() {
   const currentTrack = usePlayerStore((state) => state.currentTrack);
   const musicData = usePlayerStore((state) => state.musicData) || [];
   const playerPopup = usePlayerStore((state) => state.playerPopup);
+  const setOriginalMusicData = usePlayerStore((state) => state.setOriginalMusicData);
 
   useEffect(() => {
     fetchMusicData()
       .then((data) => {
         setMusicData(data);
         setCurrentTrack(data?.[0]);
+        setOriginalMusicData(data);
       })
       .catch((error) => console.log(error));
   }, [setMusicData]);

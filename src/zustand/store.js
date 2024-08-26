@@ -12,6 +12,7 @@ const playerStore = (set, get) => ({
   volume: 1,
   playerPopup: false,
   setMusicData: (data) => set({ musicData: data }),
+  setOriginalMusicData: (data) => set({ originalMusicData: data }),
   setCurrentTrack: (track) => set({ currentTrack: track }),
   setCurrentTab: (page) => set({ currentTab: page }),
   setIsPlaying: (isPlaying) => set({ isPlaying }),

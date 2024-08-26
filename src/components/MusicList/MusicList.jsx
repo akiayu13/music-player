@@ -9,7 +9,7 @@ const MusicList = () => {
   const currentTab = usePlayerStore((state) => state.currentTab);
 
   return (
-    <div className="w-full h-[calc(100%-130px)] sm:h-full sm:w-[35%] ">
+    <div className="w-full h-[calc(100%-200px)] sm:h-full sm:w-[35%] ">
       <TabNavigation />
       <SearchBar />
       <div className="h-[calc(100%-130px)] flex flex-col overflow-auto m-4 mx-4 sm:mx-0 no-scrollbar">
