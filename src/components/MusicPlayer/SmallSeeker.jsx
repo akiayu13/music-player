@@ -28,7 +28,7 @@ const SmallSeeker = () => {
 
   return (
     <div
-      className="seeker-wrapper block absolute bottom-[90px] py-0 sm:!hidden z-50"
+      className="seeker-wrapper block absolute bottom-[140px] py-0 sm:!hidden z-50"
     >
       <input
         type="range"
