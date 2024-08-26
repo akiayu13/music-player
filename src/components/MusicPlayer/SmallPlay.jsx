@@ -1,6 +1,4 @@
-import React, { useEffect } from "react";
 import usePlayerStore from "../../zustand/store";
-import Seeker from "./Seeker";
 import MusicControls from "./MusicControls";
 import AudioPlayer from "./AudioPlayer";
 import back from "../../assets/back.png";
@@ -62,7 +60,7 @@ const SmallPlay = () => {
         </div>
         <VolumeControl />
       </div>
-      <AudioPlayer />
+      {/* <AudioPlayer /> */}
     </div>
   );
 };

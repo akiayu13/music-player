@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import usePlayerStore from "../../zustand/store";
 import volumeIcon from "../../assets/volume.svg";
 import muteIcon from "../../assets/mute.svg";
@@ -19,21 +19,25 @@ const VolumeControl = () => {
   };
 
   const sliderStyle = {
-    background: `linear-gradient(to right, white ${volume * 100}%, rgba(255,255,255,0.08) ${volume * 100}%)`,
+    background: `linear-gradient(to right, white ${
+      volume * 100
+    }%, rgba(255,255,255,0.08) ${volume * 100}%)`,
   };
 
   return (
     <div
-      className="relative flex items-center pr-4 "
+      className="relative flex items-center pr-4 sm:pr-0 "
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <img
-        src={volume ? volumeIcon : muteIcon}
-        alt="volume"
-        className="w-6"
-        onClick={() => volume ? setVolume(0) : setVolume(1)}
-      />
+      <div className="w-[35px] aspect-square rounded-[50%] flex justify-center items-center bg-[rgba(255,255,255,0.08)]">
+        <img
+          src={volume ? volumeIcon : muteIcon}
+          alt="volume"
+          className="w-5 sm:7 cursor-pointer"
+          // onClick={() => volume ? setVolume(0) : setVolume(1)}
+        />
+      </div>
       {isHovered && (
         <div className="volume-popup">
           <input

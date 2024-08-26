@@ -1,8 +1,7 @@
-import React from "react";
 import usePlayerStore from "../../zustand/store";
 import "./Seeker.css";
 
-const Seeker = ({ small = false }) => {
+const Seeker = () => {
   const currentTime = usePlayerStore((state) => state.currentTime);
   const duration = usePlayerStore((state) => state.duration);
   const setCurrentTime = usePlayerStore((state) => state.setCurrentTime);
@@ -26,21 +25,28 @@ const Seeker = ({ small = false }) => {
     }%)`,
   };
 
+
+  const formatTime = (timeInSeconds) => {
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = Math.floor(timeInSeconds % 60);
+    return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  };
+
   return (
-    <div
-      className={`seeker-wrapper ${
-        small ? "block absolute bottom-[60px] py-0" : "hidden"
-      }  sm:block z-50`}
-    >
+    <div className="seeker-wrapper hidden sm:block z-20">
       <input
         type="range"
         min="0"
         max={duration || 100}
         value={currentTime}
         onChange={handleSeek}
-        className="seeker"
+        className="seeker w-full"
         style={progressStyle}
       />
+      <div className="flex justify-between mt-1">
+        <span className="text-white text-xs">{formatTime(currentTime)}</span>
+        <span className="text-white text-xs">{formatTime(duration)}</span>
+      </div>
     </div>
   );
 };

@@ -7,7 +7,7 @@ const TabNavigation = () => {
     usePlayerStore.getState().setCurrentTab(key);
   };
   return (
-    <div className="flex gap-4 h-[64px] font-bold text-lg p-4 sm:p-6">
+    <div className="flex gap-4 h-[64px] font-bold text-lg p-4 sm:py-8 ">
       <div
         className={`opacity-${currentTab === 0 ? 100 : 50} cursor-pointer`}
         onClick={() => handleTabChange(0)}

@@ -1,4 +1,3 @@
-// components/AudioPlayer.jsx
 import React, { useRef, useEffect } from "react";
 import usePlayerStore from "../../zustand/store";
 
@@ -10,7 +9,7 @@ const AudioPlayer = () => {
   const setIsPlaying = usePlayerStore((state) => state.setIsPlaying);
   const setCurrentTime = usePlayerStore((state) => state.setCurrentTime);
   const setDuration = usePlayerStore((state) => state.setDuration);
-
+    const nextTrack = usePlayerStore((state) => state.nextTrack);
   useEffect(() => {
     if (currentTrack) {
       audioRef.current.src = currentTrack.url;
@@ -43,8 +42,8 @@ const AudioPlayer = () => {
   };
 
   const handleEnded = () => {
-    setIsPlaying(false);
-    // You might want to call nextTrack() here if you want automatic playback
+      setIsPlaying(false);
+      nextTrack();
   };
 
   return (

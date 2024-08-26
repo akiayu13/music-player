@@ -1,4 +1,3 @@
-import React from "react";
 import usePlayerStore from "../../zustand/store";
 import "./Seeker.css";
 
@@ -30,7 +29,7 @@ const SmallSeeker = () => {
   return (
     <div
       className="seeker-wrapper block absolute bottom-[140px] py-0 sm:!hidden z-50 "
-      style={{ paddingBottom: playerPopup ? "50px" : "0" }}
+      style={{ marginBottom: playerPopup ? "50px" : "0" }}
     >
       <input
         type="range"

@@ -39,6 +39,7 @@ const SongCard = ({ song }) => {
 
   const handleTrackChange = () => {
     usePlayerStore.getState().setCurrentTrack(song);
+    usePlayerStore.getState().setIsPlaying(true);
   };
 
   return (

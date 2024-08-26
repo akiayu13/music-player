@@ -29,6 +29,7 @@ const playerStore = (set, get) => ({
       (track) => track.id === currentTrack.id
     );
     const nextIndex = (currentIndex + 1) % musicData.length;
+    set({ isPlaying: true });
     set({ currentTrack: musicData[nextIndex] });
   },
   previousTrack: () => {

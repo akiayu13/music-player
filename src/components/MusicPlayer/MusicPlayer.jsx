@@ -38,7 +38,7 @@ const MusicPlayer = () => {
           <SkeletonText />
         </div>
         <div className="sm:w-[70%] sm:max-w-[350px] md:max-w-[500px]">
-          <Seeker />
+          {/* <Seeker /> */}
           <SkeletonControls />
         </div>
         <AudioPlayer />
