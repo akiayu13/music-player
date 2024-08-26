@@ -4,6 +4,7 @@ import Seeker from "./Seeker";
 import MusicControls from "./MusicControls";
 import AudioPlayer from "./AudioPlayer";
 import back from "../../assets/back.png";
+import VolumeControl from "./VolumeControl";
 
 const SmallPlay = () => {
   const setPlayerPopup = usePlayerStore((state) => state.setPlayerPopup);
@@ -38,7 +39,7 @@ const SmallPlay = () => {
       >
         <img src={back} alt="back" className="w-6 opacity-90 cursor-pointer" />
       </div>
-      <div className="flex w-full justify-center  gap-4 items-center flex-col-reverse">
+      <div className="flex w-full justify-center  gap-4 items-center flex-col-reverse pb-[100px] ">
         <div className="flex flex-col items-center gap-2 w-[60%] max-w-[300px]">
           <p className="text-base text-[1.8rem] font-bold">
             {currentTrack.name}
@@ -53,12 +54,13 @@ const SmallPlay = () => {
           />
         </div>
       </div>
-      <div className="sm:w-[70%] bottom-5 absolute">
+      <div className="sm:w-[70%] bottom-5 absolute pb-[100px] flex justify-between w-full">
         {/* <Seeker /> */}
+        <div className="opacity-0 w-10"></div>
         <div className="flex items-center justify-between">
           <MusicControls />
-          {/* <VolumeControl /> */}
         </div>
+        <VolumeControl />
       </div>
       <AudioPlayer />
     </div>

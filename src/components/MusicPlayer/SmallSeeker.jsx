@@ -5,6 +5,7 @@ import "./Seeker.css";
 const SmallSeeker = () => {
   const currentTime = usePlayerStore((state) => state.currentTime);
   const duration = usePlayerStore((state) => state.duration);
+  const playerPopup = usePlayerStore((state) => state.playerPopup);
   const setCurrentTime = usePlayerStore((state) => state.setCurrentTime);
 
   const handleSeek = (e) => {
@@ -28,7 +29,8 @@ const SmallSeeker = () => {
 
   return (
     <div
-      className="seeker-wrapper block absolute bottom-[140px] py-0 sm:!hidden z-50"
+      className="seeker-wrapper block absolute bottom-[140px] py-0 sm:!hidden z-50 "
+      style={{ paddingBottom: playerPopup ? "50px" : "0" }}
     >
       <input
         type="range"

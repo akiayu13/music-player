@@ -19,7 +19,7 @@ const VolumeControl = () => {
 
   return (
     <div
-      className="relative flex items-center"
+      className="relative flex items-center pr-4 sm:pr-4"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
