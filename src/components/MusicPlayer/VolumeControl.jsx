@@ -30,7 +30,7 @@ const VolumeControl = () => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="w-[35px] aspect-square rounded-[50%] flex justify-center items-center bg-[rgba(255,255,255,0.08)]">
+      <div className="w-[35px] aspect-square rounded-[50%] flex justify-center items-center hover:bg-transparent bg-[rgba(255,255,255,0.08)]">
         <img
           src={volume ? volumeIcon : muteIcon}
           alt="volume"

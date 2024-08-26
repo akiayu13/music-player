@@ -1,3 +1,4 @@
+import React from "react";
 import usePlayerStore from "../../zustand/store";
 import "./Seeker.css";
 
@@ -26,9 +27,18 @@ const SmallSeeker = () => {
     }%)`,
   };
 
+  // Function to format time in MM:SS
+  const formatTime = (timeInSeconds) => {
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = Math.floor(timeInSeconds % 60);
+    return `${minutes.toString().padStart(2, "0")}:${seconds
+      .toString()
+      .padStart(2, "0")}`;
+  };
+
   return (
     <div
-      className="seeker-wrapper block absolute bottom-[140px] py-0 sm:!hidden z-50 "
+      className="seeker-wrapper block absolute bottom-[140px] py-0 sm:!hidden z-50"
       style={{ marginBottom: playerPopup ? "50px" : "0" }}
     >
       <input
@@ -37,9 +47,15 @@ const SmallSeeker = () => {
         max={duration || 100}
         value={currentTime}
         onChange={handleSeek}
-        className="seeker"
+        className="seeker w-full"
         style={progressStyle}
       />
+      {playerPopup && (
+        <div className="flex justify-between mt-1 px-2">
+          <span className="text-white text-xs">{formatTime(currentTime)}</span>
+          <span className="text-white text-xs">{formatTime(duration)}</span>
+        </div>
+      )}
     </div>
   );
 };

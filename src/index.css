@@ -38,3 +38,7 @@ body {
   overflow: hidden !important;
   background-color: black;
 }
+
+html {
+  scroll-behavior: smooth;
+}

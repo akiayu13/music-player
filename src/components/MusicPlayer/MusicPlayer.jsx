@@ -4,20 +4,20 @@ import Seeker from "./Seeker";
 import AudioPlayer from "./AudioPlayer";
 
 const SkeletonCover = () => (
-  <div className="relative w-12 sm:w-[70%] aspect-square sm:max-w-[350px] md:max-w-[500px] bg-[rgba(255,255,255,0.08)] animate-pulse">
+  <div className="relative w-12 sm:w-[70%] aspect-square !max-w-[350px] bg-[rgba(255,255,255,0.08)] animate-pulse">
     <div className="w-full h-full rounded"></div>
   </div>
 );
 
 const SkeletonText = () => (
-  <div className="flex flex-col sm:gap-2 sm:w-[70%] sm:max-w-[350px] md:max-w-[500px]">
+  <div className="flex flex-col sm:gap-2 sm:w-[70%] !max-w-[350px]">
     <div className="w-full h-6 bg-[rgba(255,255,255,0.08)] rounded animate-pulse"></div>
     <div className="w-3/4 h-4 bg-[rgba(255,255,255,0.08)] rounded animate-pulse mt-2"></div>
   </div>
 );
 
 const SkeletonControls = () => (
-  <div className="flex flex-col items-center justify-center sm:w-[70%] sm:max-w-[350px] md:max-w-[500px]">
+  <div className="flex flex-col items-center justify-center sm:w-[70%] !max-w-[350px]">
     <div className="flex justify-center gap-4 mt-4">
       <div className="w-8 h-8 bg-[rgba(255,255,255,0.08)] rounded-full animate-pulse"></div>
       <div className="w-8 h-8 bg-[rgba(255,255,255,0.08)] rounded-full animate-pulse"></div>
@@ -37,7 +37,7 @@ const MusicPlayer = () => {
           <SkeletonCover />
           <SkeletonText />
         </div>
-        <div className="sm:w-[70%] sm:max-w-[350px] md:max-w-[500px]">
+        <div className="sm:w-[70%] !max-w-[350px]">
           {/* <Seeker /> */}
           <SkeletonControls />
         </div>
@@ -58,14 +58,14 @@ const MusicPlayer = () => {
         onClick={handleClick}
         className="cursor-pointer flex sm:w-full w-[60%] sm:justify-center gap-4 items-center sm:flex-col-reverse"
       >
-        <div className="relative w-12 sm:w-[70%] aspect-square sm:max-w-[350px] md:max-w-[500px]">
+        <div className="relative w-12 sm:w-[70%] aspect-square !max-w-[350px] ">
           <img
             src={`https://cms.samespace.com/assets/${currentTrack.cover}`}
             alt="cover art"
             className="absolute inset-0 w-full h-full object-cover rounded"
           />
         </div>
-        <div className="flex flex-col sm:gap-2 sm:w-[70%] sm:max-w-[350px] md:max-w-[500px]">
+        <div className="flex flex-col sm:gap-2 sm:w-[70%] !max-w-[350px]">
           <p className="text-base sm:text-[2rem] sm:font-bold">
             {currentTrack.name}
           </p>
@@ -73,7 +73,7 @@ const MusicPlayer = () => {
         </div>
       </div>
 
-      <div className="sm:w-[70%] sm:max-w-[350px] md:max-w-[500px]">
+      <div className="sm:w-[70%] !max-w-[350px]">
         <Seeker />
         <div className="flex items-center justify-between">
           <MusicControls />

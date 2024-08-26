@@ -5,10 +5,10 @@
     align-items: center;
     position: absolute;
     padding: 1rem;
-    background-color: black !important;
+    background-color: rgba(255,255,255,0.08) !important;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem; 
-    translate: -55px -75px;
+    translate: -45px -75px;
     border-radius: 0.5rem;
     z-index: 1000;
   }
