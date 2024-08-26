@@ -15,7 +15,7 @@ const MusicControls = () => {
 
   return (
     <div className="flex justify-between items-center w-full">
-      <button className="hidden sm:flex w-[35px]  justify-center items-center cursor-pointer gap-1 aspect-square rounded-[50%] bg-[rgba(255,255,255,0.08)]">
+      <button className="hidden sm:flex w-[35px]  justify-center items-center cursor-pointer gap-1 aspect-square rounded-[50%] bg-[rgba(255,255,255,0.05)]">
         <div className="w-[5px] aspect-square rounded-[50%] bg-white"></div>{" "}
         <div className="w-[5px] aspect-square rounded-[50%] bg-white"></div>{" "}
         <div className="w-[5px] aspect-square rounded-[50%] bg-white"></div>
@@ -24,11 +24,11 @@ const MusicControls = () => {
         <button onClick={previousTrack}>
           <img src={previous} alt="" className="w-4 opacity-50" />
         </button>
-        <button onClick={togglePlay} className="w-8 h-8">
+        <button onClick={togglePlay} className="w-10 h-10">
           {isPlaying ? (
-            <img src={pause} alt="pause" className="w-8" />
+            <img src={pause} alt="pause" className="w-10" />
           ) : (
-            <img src={play} alt="play" className="w-8" />
+            <img src={play} alt="play" className="w-10" />
           )}
         </button>
         <button onClick={nextTrack}>

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import usePlayerStore from "../../zustand/store";
-
+import volumeIcon from "../../assets/volume.svg";
+import muteIcon from "../../assets/mute.svg";
 const VolumeControl = () => {
   const volume = usePlayerStore((state) => state.volume);
   const setVolume = usePlayerStore((state) => state.setVolume);
   const [isHovered, setIsHovered] = useState(false);
-
+    console.log(volume);
+    
   const handleVolumeChange = (e) => {
     const newVolume = parseFloat(e.target.value);
     setVolume(newVolume);
@@ -21,10 +23,18 @@ const VolumeControl = () => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="text-white cursor-pointer">{volume ? "vol" : "mute"}</div>
+      <img
+        src={volume ? volumeIcon : muteIcon}
+        alt="volume"
+        className="w-6"
+        onClick={() => {
+          return volume ? setVolume(0) : setVolume(1);
+        }}
+      />
+      {/* <div className="text-white cursor-pointer">{volume ? "vol" : "mute"}</div> */}
       {isHovered && (
         <div
-          className="rotate-[-90deg] flex justify-center items-center absolute p-4  translate-x-[-50px] translate-y-[-70px] rounded-lg z-50"
+          className="rotate-[-90deg] flex justify-center items-center absolute p-4  pt-6 translate-x-[-55px] translate-y-[-75px] rounded-lg z-50"
           style={{ backgroundColor: "rgba(0, 0, 0, 1)" }}
         >
           <input

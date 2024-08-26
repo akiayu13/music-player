@@ -1,7 +1,7 @@
 import Sidebar from "./components/Sidebar/Sidebar";
 import MusicList from "./components/MusicList/MusicList";
 import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import usePlayerStore from "./zustand/store";
 import { fetchMusicData } from "./services/musicPlayerServices";
 import Seeker from "./components/MusicPlayer/Seeker";
@@ -14,8 +14,10 @@ export default function App() {
   const currentTrack = usePlayerStore((state) => state.currentTrack);
   const musicData = usePlayerStore((state) => state.musicData) || [];
   const playerPopup = usePlayerStore((state) => state.playerPopup);
-  const setOriginalMusicData = usePlayerStore((state) => state.setOriginalMusicData);
-
+  const setOriginalMusicData = usePlayerStore(
+    (state) => state.setOriginalMusicData
+  );
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     fetchMusicData()
       .then((data) => {
@@ -23,12 +25,13 @@ export default function App() {
         setCurrentTrack(data?.[0]);
         setOriginalMusicData(data);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error))
+      .finally(() => setIsLoading(false));
   }, [setMusicData]);
 
   return (
     <>
-      {musicData?.length ? (
+      {!isLoading ? (
         <div className="relative h-screen w-full flex flex-col sm:flex-row overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center"

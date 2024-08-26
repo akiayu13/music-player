@@ -18,7 +18,7 @@ const MusicList = () => {
             .filter((song) => !currentTab || song?.top_track == currentTab)
             .map((song) => <SongCard key={song.id} song={song} />)
         ) : (
-          <div className="text-center text-gray-500">
+          <div className="text-left text-gray-500">
             No songs available. Try searching for a different track.
           </div>
         )}
