@@ -7,6 +7,7 @@ import { fetchMusicData } from "./services/musicPlayerServices";
 import Seeker from "./components/MusicPlayer/Seeker";
 import SmallSeeker from "./components/MusicPlayer/SmallSeeker";
 import SmallPlay from "./components/MusicPlayer/SmallPlay";
+import Skeleton from "./components/Skeleton/Skeleton";
 
 export default function App() {
   const setMusicData = usePlayerStore((state) => state.setMusicData);
@@ -14,10 +15,11 @@ export default function App() {
   const currentTrack = usePlayerStore((state) => state.currentTrack);
   const musicData = usePlayerStore((state) => state.musicData) || [];
   const playerPopup = usePlayerStore((state) => state.playerPopup);
+  const setIsLoading = usePlayerStore((state) => state.setIsLoading);
   const setOriginalMusicData = usePlayerStore(
     (state) => state.setOriginalMusicData
   );
-  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     fetchMusicData()
       .then((data) => {
@@ -31,39 +33,32 @@ export default function App() {
 
   return (
     <>
-      {!isLoading ? (
-        <div className="relative h-screen w-full flex flex-col sm:flex-row overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage: `url('https://cms.samespace.com/assets/${currentTrack?.cover}')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              filter: "blur(30px)",
-              zIndex: -1,
-            }}
-          ></div>
-          <div
-            className="absolute inset-0 w-full h-full"
-            style={{
-              background:
-                "radial-gradient(circle, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1))",
-              filter: "blur(0px)",
-              zIndex: -1,
-            }}
-          ></div>
-          {playerPopup && <SmallPlay />}
-          {/* <div className={`${playerPopup ? "opacity-0" : "opacity-100"}`}> */}
-          <Sidebar />
-          <MusicList />
-          <MusicPlayer />
-          {/* </div> */}
-
-          <SmallSeeker />
-        </div>
-      ) : (
-        <div>Loading...</div>
-      )}
+      <div className="relative h-screen w-full flex flex-col sm:flex-row overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url('https://cms.samespace.com/assets/${currentTrack?.cover}')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            filter: "blur(30px)",
+            zIndex: -1,
+          }}
+        ></div>
+        <div
+          className="absolute inset-0 w-full h-full"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1))",
+            filter: "blur(0px)",
+            zIndex: -1,
+          }}
+        ></div>
+        {playerPopup && <SmallPlay />}
+        <Sidebar />
+        <MusicList />
+        <MusicPlayer />
+        <SmallSeeker />
+      </div>
     </>
   );
 }

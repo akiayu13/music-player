@@ -10,6 +10,7 @@ const playerStore = (set, get) => ({
   currentTime: 0,
   duration: 0,
   volume: 1,
+  isLoading: true,
   playerPopup: false,
   setMusicData: (data) => set({ musicData: data }),
   setOriginalMusicData: (data) => set({ originalMusicData: data }),
@@ -21,6 +22,7 @@ const playerStore = (set, get) => ({
   setVolume: (volume) => set({ volume }),
   togglePlay: () => set((state) => ({ isPlaying: !state.isPlaying })),
   setPlayerPopup: (popup) => set({ playerPopup: popup }),
+  setIsLoading: (isLoading) => set({ isLoading }),
   nextTrack: () => {
     const { musicData, currentTrack } = get();
     const currentIndex = musicData.findIndex(

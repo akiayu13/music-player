@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import usePlayerStore from "../../zustand/store";
 
+const SkeletonDuration = () => (
+  <div className="w-16 h-4 bg-[rgba(255,255,255,0.08)] rounded animate-pulse"></div>
+);
+
 const SongCard = ({ song }) => {
   const currentTrack = usePlayerStore((state) => state.currentTrack);
   const [duration, setDuration] = useState("Loading...");
@@ -57,7 +61,13 @@ const SongCard = ({ song }) => {
           <span className="text-sm font-normal">{song.artist}</span>
         </p>
       </div>
-      <div>{duration}</div>
+      <div>
+        {duration === "Loading..." ? (
+          <SkeletonDuration />
+        ) : (
+          duration
+        )}
+      </div>
     </div>
   );
 };
