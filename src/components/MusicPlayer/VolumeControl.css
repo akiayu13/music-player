@@ -1,0 +1,46 @@
+.volume-popup {
+    transform: rotate(-90deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    padding: 1rem;
+    background-color: black !important;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem; 
+    translate: -55px -75px;
+    border-radius: 0.5rem;
+    z-index: 1000;
+  }
+  
+  .custom-slider {
+    -webkit-appearance: none;
+    width: 6rem;
+    height: 0.25rem;
+    border-radius: 0.25rem;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  
+  .custom-slider:hover {
+    opacity: 1;
+  }
+  
+  .custom-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+  }
+  
+  .custom-slider::-moz-range-thumb {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+  }

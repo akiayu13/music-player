@@ -48,7 +48,7 @@ export default function App() {
           className="absolute inset-0 w-full h-full"
           style={{
             background:
-              "radial-gradient(circle, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1))",
+              "radial-gradient(circle, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.81))",
             filter: "blur(0px)",
             zIndex: -1,
           }}
