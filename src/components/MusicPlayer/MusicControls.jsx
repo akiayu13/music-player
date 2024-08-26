@@ -16,7 +16,10 @@ const MusicControls = () => {
 
   return (
     <div className="z-50 flex justify-between items-center w-full">
-      <button className="absolute ml-4 left-0 sm:relative sm:left-auto sm:ml-0 flex w-[35px]  justify-center items-center cursor-pointer gap-1 aspect-square rounded-[50%] bg-[rgba(255,255,255,0.05)]">
+      <button
+        style={{ opacity: playerPopup ? 1 : 0 }}
+        className="absolute ml-4 left-0 sm:relative sm:left-auto sm:!opacity-100 sm:ml-0 flex w-[35px]  justify-center items-center cursor-pointer gap-1 aspect-square rounded-[50%] bg-[rgba(255,255,255,0.05)]"
+      >
         <div className="w-[5px] aspect-square rounded-[50%] bg-white"></div>{" "}
         <div className="w-[5px] aspect-square rounded-[50%] bg-white"></div>{" "}
         <div className="w-[5px] aspect-square rounded-[50%] bg-white"></div>
